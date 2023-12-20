@@ -5,8 +5,8 @@ import com.example.PP_3_1.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.util.List;
 
+import java.util.List;
 
 
 @Controller
@@ -52,7 +52,7 @@ public class UserController {
         return "redirect:/users";
     }
 
-    @GetMapping("/remove")
+    @PostMapping("/remove")
     public String deleteUser(@RequestParam("id") int id) {
         User user = userService.delete(id);
         return "redirect:/users";

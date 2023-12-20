@@ -2,6 +2,7 @@ package com.example.PP_3_1.dao;
 
 import com.example.PP_3_1.model.User;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
@@ -38,6 +39,10 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User get(int id) {
-        return entityManager.find(User.class, id);
+        User user = entityManager.find(User.class, id);
+        if (user == null) {
+            throw new EntityNotFoundException("Can't find user for ID " + id);
+        }
+        return user;
     }
 }

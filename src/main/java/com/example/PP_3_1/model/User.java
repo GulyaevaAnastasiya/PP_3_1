@@ -2,6 +2,9 @@ package com.example.PP_3_1.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
 
@@ -13,18 +16,22 @@ public class User {
     private int id;
 
     @Column(name = "name")
+    @NotEmpty(message = "Name shouldn't be empty")
+    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 charscters")
     private String name;
 
     @Column(name = "email")
+    @NotEmpty (message = "Email shouldn't be empty")
+    @Email(message = "Email should be valid")
     private String email;
 
     @Column(name = "phone_number")
-    private Long phoneNumber;
+    private String phoneNumber;
 
     public User() {
     }
 
-    public User(String name, String email, Long phoneNumber) {
+    public User(String name, String email, String phoneNumber) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -54,11 +61,11 @@ public class User {
         this.email = email;
     }
 
-    public Long getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

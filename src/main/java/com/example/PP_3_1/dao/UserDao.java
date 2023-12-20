@@ -1,9 +1,6 @@
 package com.example.PP_3_1.dao;
 
-
-
 import com.example.PP_3_1.model.User;
-
 import java.util.List;
 
 public interface UserDao {
