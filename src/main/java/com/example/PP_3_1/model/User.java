@@ -1,7 +1,12 @@
 package com.example.PP_3_1.model;
 
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -21,7 +26,7 @@ public class User {
     private String name;
 
     @Column(name = "email")
-    @NotEmpty (message = "Email shouldn't be empty")
+    @NotEmpty(message = "Email shouldn't be empty")
     @Email(message = "Email should be valid")
     private String email;
 
